@@ -1,13 +1,6 @@
-/**
- * Created by IntelliJ IDEA.
- * User: Thoughtworks
- * Date: 3/20/12
- * Time: 2:43 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Book {
-    private static String title;
-    private static boolean reserved;
+    private String title;
+    private boolean reserved;
 
     public Book(String title) {
         this.title = title;
@@ -15,15 +8,25 @@ public class Book {
     }
 
 
-    public static String getTitle() {
-        return title;
+    public String getTitle() {
+        if (this.reserved){
+            return "*" + this.title + "*";
+        }
+        else {
+            return this.title;
+        }
+
     }
 
-    public static boolean reserved() {
-        return reserved;
+    public boolean reserved() {
+        return this.reserved;
     }
 
     public void reserve() {
         this.reserved = true;
+    }
+
+    public String toString(){
+        return this.getTitle();
     }
 }

@@ -1,12 +1,15 @@
-/**
- * Created by IntelliJ IDEA.
- * User: Thoughtworks
- * Date: 3/20/12
- * Time: 2:37 PM
- * To change this template use File | Settings | File Templates.
- */
+
 public class Printer {
-    public static void output(String s) {
-        System.out.println(s);
+
+    public void output(Library bibliotecaLibrary) {
+        System.out.println("\n\n\nHere are the books we have:\n");
+        for (int i = 0; i < bibliotecaLibrary.books().size(); i++){
+            System.out.println((i+1) + ". " + bibliotecaLibrary.books().get(i));
+        }
+        System.out.println("\n");
+    }
+
+    public void output(String message) {
+        System.out.println(message);
     }
 }

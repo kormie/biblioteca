@@ -1,26 +1,31 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Thoughtworks
- * Date: 3/20/12
- * Time: 1:50 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Menu {
 
     private String message;
-    private String[] options;
+    private List<String> options;
+    private Printer printer = new Printer();
 
-    public Menu(String message, String[] options) {
+    public Menu(String message, List<String> options) {
         this.message = message;
         this.options = options;
     }
 
-    public String getMessage() {
-        return message;
+    public Menu(String s) {
+        this.message = s;
+    }
+
+    public void print(){
+        printer.output(message + "\n\n\n");
+        if (options != null){
+            for (int i=0; i < options.size(); i++){
+                printer.output((i+1) + ". " + options.get(i));
+            }
+        }
+        printer.output("\n");
     }
 
     public int selectedOption(String s) {
@@ -29,8 +34,8 @@ public class Menu {
 
     public String getOptions() {
         String output = "";
-        for (int i = 0; i < options.length; i++)
-            output += "\n" + (i+1) + ". " + options[i];
+        for (int i = 0; i < options.size(); i++)
+            output += "\n" + (i+1) + ". " + options.get(i);
         return output;
     }
 
@@ -40,7 +45,6 @@ public class Menu {
         try {
             userInput = in.readLine();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return userInput;
