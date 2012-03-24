@@ -1,19 +1,30 @@
-import org.junit.Assert;
+
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class BookTest {
 
     @Test
     public void returnsItsAttributes(){
         Book testBook = new Book("Title");
-        Assert.assertEquals("Title", testBook.getTitle());
-        Assert.assertFalse(testBook.reserved());
+        assertEquals("Title", testBook.getTitle());
+        assertFalse(testBook.reserved());
     }
 
     @Test
     public void reservesABook(){
         Book testBook = new Book("Title");
         testBook.reserve();
-        Assert.assertTrue(testBook.reserved());
+        assertTrue(testBook.reserved());
+    }
+
+    @Test
+    public void reservedBooksLookDifferent(){
+        Book testBook = new Book("Title");
+        testBook.reserve();
+        assertEquals("*Title*", testBook.getTitle());
     }
 }

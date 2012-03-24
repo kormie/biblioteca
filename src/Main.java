@@ -66,6 +66,11 @@ public class Main {
         Menu reservationMenu = new Menu("Which book would you like to reserve?\n");
         reservationMenu.print();
         String selection = reservationMenu.getUserInput();
+        Boolean matched = reserveBook(library, selection);
+        if(!matched){ System.out.println("\n\n\nSorry we don't have that book yet.\n\n\n"); }
+        }
+
+    private static Boolean reserveBook(Library library, String selection) {
         Boolean matched = false;
         for (Book book : library.books()){
             if(selection.equals(book.getTitle())){
@@ -77,8 +82,8 @@ public class Main {
             }
 
         }
-        if(!matched){ System.out.println("\n\n\nSorry we don't have that book yet.\n\n\n"); }
-        }
+        return matched;
+    }
 
     private static void checkLibraryNumber(){
         System.out.println("\n\n\nPlease talk to Librarian. Thank you.\n\n\n");

@@ -5,14 +5,6 @@ import java.util.Arrays;
 
 public class MenuTest {
 
-//    @Test
-//    public void saysHello(){
-//        List<String> string = Arrays.asList("hello");
-//        Menu welcomeMenu = new Menu("Welcome to Biblioteca", string);
-//        String message = "Welcome to Biblioteca";
-//        Assert.assertEquals(message, welcomeMenu.print(););
-//    }
-
     @Test
     public void returnsUserInputAsInt(){
         Menu welcomeMenu = new Menu("", Arrays.asList(""));
@@ -24,6 +16,16 @@ public class MenuTest {
         Menu welcomeMenu = new Menu("", Arrays.asList("Option One", "Option Two", "Option Three"));
         Assert.assertEquals("\n1. Option One\n2. Option Two\n3. Option Three", welcomeMenu.getOptions());
     }
+
+
+    // because this returns a void, I am having trouble testing it
+    // I think in a later refactoring I should pull something out of
+    // here that I can test but I'm not exactly sure what.
+
+//    @Test
+//    public void printsCorrectly(){
+//        Menu testMenu1 = new Menu("hello");
+//    }
     
 
 }

@@ -1,5 +1,5 @@
 public class Book {
-    private String title;
+    private final String title;
     private boolean reserved;
 
     public Book(String title) {

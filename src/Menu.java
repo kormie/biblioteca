@@ -39,6 +39,8 @@ public class Menu {
         return output;
     }
 
+
+    // I have no idea how to test a Reader
     public String getUserInput(){
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String userInput = null;
